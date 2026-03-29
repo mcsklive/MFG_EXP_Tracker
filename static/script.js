@@ -3,11 +3,11 @@ document.getElementById('searchBtn').addEventListener('click', function() {
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = '';
     if (!sku) {
-        resultDiv.innerHTML = '<div class="error">กรุณากรอกเลข SKU</div>';
+        resultDiv.innerHTML = '<div class="error">กรุณาลดน้ำหนัก</div>';
         return;
     }
-    // แสดงข้อความกำลังตรวจสอบข้อมูล
-    resultDiv.innerHTML = '<div class="loading" style="color:#f76b1c;font-weight:bold;margin-top:24px;">กำลังตรวจสอบข้อมูล...</div>';
+    // แสดงข้อความกำลังลดน้ำหนัก
+    resultDiv.innerHTML = '<div class="loading" style="color:#f76b1c;font-weight:bold;margin-top:24px;">กำลังลดน้ำหนัก...</div>';
     fetch('/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -67,7 +67,7 @@ document.getElementById('searchBtn').addEventListener('click', function() {
             table += '</tbody></table>';
             resultDiv.innerHTML = table;
         } else {
-            resultDiv.innerHTML = `<div class=\"error\">${res.body.error || 'ไม่พบข้อมูล'}</div>`;
+            resultDiv.innerHTML = `<div class=\"error\">${res.body.error || 'ไม่มีทางผอมหรอกชาตินี้'}</div>`;
         }
     })
     .catch(err => {
