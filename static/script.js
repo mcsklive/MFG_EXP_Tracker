@@ -71,6 +71,6 @@ document.getElementById('searchBtn').addEventListener('click', function() {
         }
     })
     .catch(err => {
-        resultDiv.innerHTML = `<div class="error">เกิดข้อผิดพลาด: ${err}</div>`;
+        resultDiv.innerHTML = `<div class="error">ไม่ผอมวันนี้ วันหน้าก็ไม่ผอม: ${err}</div>`;
     });
 });
