@@ -214,10 +214,10 @@
 </head>
 <body>
     <div class="container">
-        <h2><i class="fa-solid fa-barcode"></i>ค้นหาข้อมูลสินค้า (SKU)</h2>
-        <input type="text" id="skuInput" placeholder="กรอกเลข SKU" autocomplete="off" />
+        <h2><i class="fa-solid fa-barcode"></i>อิอ้วนแม่ลูกอ่อน</h2>
+        <input type="text" id="skuInput" placeholder="นิ่งเป็นหลัก ขยับเป็นแหลก" autocomplete="off" />
         <br>
-        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i>ค้นหา</button>
+        <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i>เพิ่มน้ำหนัก</button>
     </div>
     <div id="result" style="max-width:100vw;margin:32px auto 0 auto;"></div>
     <script src="/static/script.js"></script>
@@ -234,14 +234,14 @@
         if (args[0] && args[0].toString().includes('/search')) {
             searchBtn.classList.add('loading');
             searchBtn.disabled = true;
-            searchBtn.innerHTML = '<i class="fa-solid fa-spinner"></i>กำลังค้นหา...';
+            searchBtn.innerHTML = '<i class="fa-solid fa-spinner"></i>กำลังลดน้ำหนัก...';
         }
         return origFetch.apply(this, args).then(res => {
             if (args[0] && args[0].toString().includes('/search')) {
                 setTimeout(() => {
                     searchBtn.classList.remove('loading');
                     searchBtn.disabled = false;
-                    searchBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>ค้นหา';
+                    searchBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass"></i>เพิ่มน้ำหนัก';
                 }, 400); // delay เพื่อให้เห็น animation
             }
             return res;
